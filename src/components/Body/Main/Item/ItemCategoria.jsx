@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 
 const ItemCategoria = ({ categoria }) => {
@@ -6,6 +6,8 @@ const ItemCategoria = ({ categoria }) => {
   if (!Array.isArray(categoria) || categoria.length === 0) {
     return <p>No hay productos disponibles en esta categoría.</p>;
   }
+
+
 
 
 
@@ -21,10 +23,11 @@ const ItemCategoria = ({ categoria }) => {
                                 <div className="card-body">
                                     <h3 className="card-title">{producto.nombre}</h3>
                                     <p className="card-text">{producto.descripcion}</p>
-                                    <p className="card-text">{producto.precio}</p>
-                                    <button className="btn btn-danger" style={{margin: '0.5rem'}}>Comprar</button>
+                                    <p className="card-text">$ {producto.precio}</p>
                                     <Link className="btn btn-link"  to={`/detail/${producto.id}`}>detalle</Link>
-                                    <Link className="btn btn-link"  style={{margin: '0.5rem'}} to={`/categoria/${producto.categoria}`}>categoria</Link>
+                                    <Link className="btn btn-link"  style={{margin: '0.5rem'}} to={`/categoria/${producto.categoria}`}>Categoria {producto.categoria} </Link>
+                                    <br />
+                                    <button className="btn btn-danger" style={{margin: '0.5rem'}}>Comprar</button>
                                 </div>
                             </div>
                         </div>
@@ -38,3 +41,4 @@ const ItemCategoria = ({ categoria }) => {
   );
 }
 export default ItemCategoria;
+                                    

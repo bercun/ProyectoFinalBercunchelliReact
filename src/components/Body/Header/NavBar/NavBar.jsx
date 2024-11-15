@@ -32,7 +32,7 @@ function NavBar() {
                             <Link className="nav-link" to="./about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/carrito"><i className="fa-solid fa-cart-shopping"></i> <span className="badge bg-danger rounded-pill " id="carrito-box"></span></Link>
+                            <Link className="nav-link" to="/cart"><i className="fa-solid fa-cart-shopping"></i> <span className="badge bg-danger rounded-pill " id="carrito-box"></span></Link>
                         </li>
                     </ul>
                 </div>

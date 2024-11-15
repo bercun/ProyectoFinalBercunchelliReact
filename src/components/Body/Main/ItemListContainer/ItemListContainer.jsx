@@ -43,7 +43,7 @@ function ItemListContainer() {
    
     <Item productos={productos} />
     
-    <ItemCategoria categoria={categoria} />
+    {/* <ItemCategoria categoria={categoria} /> */}
 
     </>
   )

@@ -27,6 +27,7 @@ const ItemDetail = ({item}) => {
               <h5 className="card-title">{item.nombre}</h5>
               <p className="card-text">{item.descripcion}</p>
               <p className="card-text"><small className="text-muted">Categoria:  {item.categoria} </small></p>
+              <p className="card-text"><small className="text-muted">Stock:  {item.stock} </small></p>
             </div>
           </div>
         </div>
