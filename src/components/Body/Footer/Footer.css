@@ -1,0 +1,31 @@
+footer {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    font-size: medium;
+    margin-top: 40px;
+  }
+  
+  footer .redes {
+    background-color: #F2F2F2;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  footer a {
+    color: #8C182D;
+    font-weight: bold;
+  }
+  
+  footer .redes i {
+    color: #F20707;
+    font-size: 20px;
+    letter-spacing: 30px;
+  }
+  
+  footer .redes a {
+    text-decoration: none;
+  }

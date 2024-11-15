@@ -1,0 +1,23 @@
+.texto-about {
+    width: 80vw;
+    height: 60vh;
+    border: 0px solid black;
+    border-radius: 25px;
+    padding: 20px;
+    text-shadow: 0 0 1px black;
+    background-color: rgba(255, 255, 255, 0.062);
+    margin: 0 auto;
+    margin-bottom: 60px;
+    overflow: auto;
+  }
+
+
+  .main-about {
+    width: 100vw;
+    height: 1500px;
+    background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+  }

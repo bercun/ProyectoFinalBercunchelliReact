@@ -1,0 +1,13 @@
+<div className="prod2-left col-sm-6 col-lg-3 col-xl-2"></div>
+                            <div className="prod2-right col-sm-6 col-lg-3 col-xl-2">
+                                <h3>Panes</h3>
+                                <p>Descubre nuestra variedad de panes sin gluten: baguettes crujientes, pan de molde suave y más. Disfruta del pan fresco, libre de gluten. ¡Explora ahora!
+                                </p>
+                            </div>
+                        <div className="prod3-left col-sm-6 col-lg-3 col-xl-2"></div>
+                            <div className="prod3-right col-sm-6 col-lg-3 col-xl-2">
+                                <h3>Pastas Rellenas</h3>
+                                <p>Descubre nuestras pastas sin gluten: desde raviolis de ricotta hasta tortellini de espinacas. Disfruta sin preocupaciones. ¡Explora ahora!
+                                </p>
+
+                            </div>
