@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useState } from "react";
 
 // estilos
 import "./body.css";
@@ -15,40 +16,52 @@ import ItemContainer from "./Main/ItemContainer/ItemContainer";
 import ItemContainerDetail from "./Main/ItemContainer/ItemContainerDetail";
 import ItemContainerByCa from "./Main/ItemContainer/ItemContainerByCa";
 import Cart from "../pages/Cart";
+import { CarritoContext } from "../context/CarritoContext";
 
 
 
 
 
 function Body() {
+
+const [carrito, setCarrito] = useState([]);
+
+
+
+
+
+
+
     return (
         <>
-        <BrowserRouter>
-        
-            <NavBar />
+        <CarritoContext.Provider value={{carrito, setCarrito}}>
+            <BrowserRouter>
             
-            <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="/about" element={<About />} />
-                <Route path="/productos" element={<ItemContainer/>} />
-                <Route path="/login" element={<Login/>} />
-                {/* navegacion */}
-                <Route path="/detail/:id" element={<ItemContainerDetail/>} />
-                <Route path="/categoria/:categoria" element={<ItemContainerByCa/>} />
-                <Route path="/categoria/" element={<ItemContainerByCa/>} />
-                <Route path="*" element={<h1>404 Not Found</h1>} />
-                <Route path="/cart" element={<Cart/> }/>
+                <NavBar />
+                
+                <Routes>
+                    <Route path="/" element={<Home/>} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/productos" element={<ItemContainer/>} />
+                    <Route path="/login" element={<Login/>} />
+                    {/* navegacion */}
+                    <Route path="/detail/:id" element={<ItemContainerDetail/>} />
+                    <Route path="/categoria/:categoria" element={<ItemContainerByCa/>} />
+                    <Route path="/categoria/" element={<ItemContainerByCa/>} />
+                    <Route path="*" element={<h1>404 Not Found</h1>} />
+                    <Route path="/cart" element={<Cart/> }/>
 
-            </Routes>
-
-        
-               
+                </Routes>
 
             
-            <Footer />  
+                
+
+                
+                <Footer />  
+            
+            </BrowserRouter>
+        </CarritoContext.Provider>
         
-        </BrowserRouter>
-        {/* <ItemDetail id={2}/> */}
         </>
 
     );

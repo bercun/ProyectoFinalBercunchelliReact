@@ -6,7 +6,7 @@ const productos = [
         "descripcion": "Gambas de Denia con vinagreta de lima, rúcula y tomate cherry", 
         "precio": 560,
         "categoria": "entrantes",
-        "stock": 10
+        "stock": 6
     },
     { 
         "id": 2,
@@ -15,7 +15,7 @@ const productos = [
         "descripcion": "Tomate ecológico, muzarella de búfala, rúcula y aceite de oliva",
         "precio": 250,
         "categoria": "entrantes",
-        "stock": 10
+        "stock": 8
     },
     { 
         "id": 3, 

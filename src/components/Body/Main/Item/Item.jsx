@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import AddCarrito from "../../Header/Carrito/AddCarrito";
+import { useContext } from "react";
+import { CarritoContext } from "../../../context/CarritoContext";
 
 function Item({ productos, }) {
+
+    const {carrito,setCarrito} = useContext(CarritoContext);
+
+
+
     return (
         <>
             <div className="container">
@@ -16,11 +24,12 @@ function Item({ productos, }) {
                                     <p className="card-text">$ {producto.precio}</p>
                                     <Link className="btn btn-link" to={`/detail/${producto.id}`}>detalle</Link>
                                     <Link className="btn btn-link" style={{margin: '0.5rem'}} to={`/categoria/${producto.categoria}`}>categoria {producto.categoria} </Link>
-                                    <br />
-                                    <button type="button" className="btn btn-sm btn-outline-danger btnAgregar" id="${producto.id}">
-                                    <i className="fa-solid fa-cart-shopping"></i></button>
-
-                                    <button className="btn btn-danger" style={{margin: '0.5rem'}}>Comprar</button>
+                              
+                                    <AddCarrito  
+                                    stock = {producto.stock}
+                                    id = {producto.id}
+                                    porducto = {producto}
+                                    />
                                 </div>
                             </div>
                         </div>

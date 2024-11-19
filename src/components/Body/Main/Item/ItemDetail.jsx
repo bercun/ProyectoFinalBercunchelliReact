@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { productosById } from "../../../../Data/asyncMocks";
- 
+
 
 
 const ItemDetail = ({item}) => {

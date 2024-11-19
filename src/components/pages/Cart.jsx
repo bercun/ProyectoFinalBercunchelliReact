@@ -5,7 +5,7 @@ function Cart() {
 
     
   return (
-    <main className="main-carrito">
+    <main className="main-carrito" style={{margin: '3rem'}}>
       <div className="carrito-box">
         <div>
           <table className="table">
@@ -20,12 +20,20 @@ function Cart() {
                 <th scope="col">cantidad</th>
               </tr>
             </thead>
-            <tbody id="tablaCompras">
+            <tbody >
             </tbody>
-            <tfoot className="tfooter">
+            <tfoot className="tfooter ">
               <tr>
                 <td><h3>Total</h3></td>
-                <td className="carritoSuma" id="sumaCompra"><h3></h3></td>
+                <td className="carritoSuma" >
+                <div className="input-group-append">
+                  <button className="btn btn-outline-secondary sumar " type="button" >+</button>
+                  </div>
+                <input type="text"  className="form-control-w5" />
+                  <div className="input-group-append">
+                  <button className="btn btn-outline-secondary sumar " type="button" >+</button>
+                  </div>
+                </td>
                 <td><button type="button" className="btn btn-danger" >Pagar</button></td>
                 <td><button type="button" className="btn btn-danger" >Vaciar</button></td>
               </tr>
