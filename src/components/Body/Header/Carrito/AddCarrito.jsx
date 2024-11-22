@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
+import { useContext } from 'react';
+import { CarritoContext } from '../../../context/CarritoContext';
 
 
-
-const AddCarrito = ({stock,id,producto}) => {
-
-    
-
-
-
+const AddCarrito = ({producto, id}) => {
+  
     const [unidades, setUnidades] = useState(1);
 
     const restUnidades = ()=>{
@@ -15,9 +12,9 @@ const AddCarrito = ({stock,id,producto}) => {
         unidades > 1 && setUnidades(unidades - 1)
     
     
-    
     };
-
+   
+    
     const addUnidades = ()=>{
     
     
@@ -25,14 +22,10 @@ const AddCarrito = ({stock,id,producto}) => {
     
     
     }
- 
-
-     
-
-    const upCarrito = ()=>{}
-
-    
-
+  
+    const upCarrito = ()=>{
+        
+    }
 
   return (
     <div className="container mt-5">
@@ -45,7 +38,7 @@ const AddCarrito = ({stock,id,producto}) => {
           <i className="fas fa-plus"></i>
         </button>
         <div className="text-center ">
-            <button className="btn btn-primary "onDoubleClick={upCarrito}>
+            <button className="btn btn-primary "onClick={upCarrito}>
             <i className="fas fa-shopping-cart"></i> Go! to cart 
             </button>
         </div>

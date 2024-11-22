@@ -3,9 +3,11 @@ import AddCarrito from "../../Header/Carrito/AddCarrito";
 import { useContext } from "react";
 import { CarritoContext } from "../../../context/CarritoContext";
 
-function Item({ productos, }) {
+function Item({ productos }) {
 
     const {carrito,setCarrito} = useContext(CarritoContext);
+    console.log(carrito);
+    
 
 
 
@@ -25,11 +27,8 @@ function Item({ productos, }) {
                                     <Link className="btn btn-link" to={`/detail/${producto.id}`}>detalle</Link>
                                     <Link className="btn btn-link" style={{margin: '0.5rem'}} to={`/categoria/${producto.categoria}`}>categoria {producto.categoria} </Link>
                               
-                                    <AddCarrito  
-                                    stock = {producto.stock}
-                                    id = {producto.id}
-                                    porducto = {producto}
-                                    />
+                                    {/* <AddCarrito  producto={producto} id
+                                    /> */}
                                 </div>
                             </div>
                         </div>
