@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import AddCarrito from "../../Header/Carrito/AddCarrito";
-import { useContext } from "react";
-import { CarritoContext } from "../../../context/CarritoContext";
+// import AddCarrito from "../../Header/Carrito/AddCarrito";
+// import { useContext } from "react";
+// import { CarritoContext } from "../../../context/CarritoContext";
 
 function Item({ productos }) {
 
-    const {carrito,setCarrito} = useContext(CarritoContext);
-    console.log(carrito);
+    // const {carrito,setCarrito} = useContext(CarritoContext);
+    // console.log(carrito);
     
 
 
