@@ -32,7 +32,7 @@ const AddCarrito = ({producto}) => {
 
     };
     useEffect(() => {
-      console.log("Carrito", carrito);
+      
     }, [carrito]);
        
   return (

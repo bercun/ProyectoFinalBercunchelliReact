@@ -1,15 +1,6 @@
 import { Link } from "react-router-dom";
-// import AddCarrito from "../../Header/Carrito/AddCarrito";
-// import { useContext } from "react";
-// import { CarritoContext } from "../../../context/CarritoContext";
 
 function Item({ productos }) {
-
-    // const {carrito,setCarrito} = useContext(CarritoContext);
-    // console.log(carrito);
-    
-
-
 
     return (
         <>
@@ -26,9 +17,6 @@ function Item({ productos }) {
                                     <p className="card-text">$ {producto.precio}</p>
                                     <Link className="btn btn-link" to={`/detail/${producto.id}`}>detalle</Link>
                                     <Link className="btn btn-link" style={{margin: '0.5rem'}} to={`/categoria/${producto.categoria}`}>categoria {producto.categoria} </Link>
-                              
-                                    {/* <AddCarrito  producto={producto} id
-                                    /> */}
                                 </div>
                             </div>
                         </div>
