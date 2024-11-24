@@ -1,40 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import { useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { CarritoContext } from '../../../context/CarritoContext';
 
+const AddCarrito = ({ producto }) => {
+  const [unidades, setUnidades] = useState(1);
+  const { carrito, setCarrito } = useContext(CarritoContext);
 
-const AddCarrito = ({producto}) => {
+  const restUnidades = () => {
+    if (unidades > 1) {
+      setUnidades(unidades - 1);
+    }
+  };
 
-  
-  
-    const [unidades, setUnidades] = useState(1);
-    const {carrito, setCarrito} = useContext(CarritoContext);
+  const addUnidades = () => {
+    if (unidades < producto.stock) {
+      setUnidades(unidades + 1);
+    }
+  };
 
-    const restUnidades = ()=>{
-    
-        unidades > 1 && setUnidades(unidades - 1)
-    
-    
-    
-    };
-   
-    
-    const addUnidades = ()=>{
-    unidades < producto.stock && setUnidades(unidades + 1)
-   
-    };
-    
-    const subirCArrito = () => {
-        const nuevoProducto = { ...producto, unidades };
-        console.log(nuevoProducto);
-        setCarrito([...carrito, nuevoProducto]);
-       
+  const subirCarrito = () => {
+    const nuevoProducto = { ...producto, unidades };
+    const productoExistente = carrito.find(item => item.id === producto.id);
 
-    };
-    useEffect(() => {
-      
-    }, [carrito]);
-       
+    if (productoExistente) {
+      // Si el producto ya existe en el carrito, actualiza la cantidad
+      const carritoActualizado = carrito.map(item =>
+        item.id === producto.id ? { ...item, unidades: item.unidades + unidades } : item
+      );
+      setCarrito(carritoActualizado);
+    } else {
+      // Si el producto no existe en el carrito, añádelo
+      setCarrito([...carrito, nuevoProducto]);
+    }
+  };
+
+  useEffect(() => {
+    console.log(carrito);
+  }, [carrito]);
+
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-center align-items-center">
@@ -46,7 +48,7 @@ const AddCarrito = ({producto}) => {
           <i className="fas fa-plus"></i>
         </button>
         <div className="text-center ">
-            <button className="btn btn-primary "onClick={subirCArrito}>
+            <button className="btn btn-primary "onClick={subirCarrito}>
             <i className="fas fa-shopping-cart"></i> Go! to cart 
             </button>
         </div>
