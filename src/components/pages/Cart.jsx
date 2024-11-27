@@ -21,6 +21,11 @@ function Cart() {
     );
     setCarrito(carritoActualizado);
   };
+  const eliminar = (id) => {
+    const carritoActualizado = carrito.filter(item => item.id !== id);
+    setCarrito(carritoActualizado);
+  };
+  
 
   let unidadesEnCarrito = carrito.reduce((total, item) => total + item.unidades, 0);
 
@@ -50,7 +55,13 @@ function Cart() {
                   <td>{item.unidades}</td>
                   <td>
                     <button type="button" className="btn btn-outline-secondary" onClick={() => decrementarUnidades(item.id)}>-</button>
+                  </td>  
+                  <td>
                     <button type="button" className="btn btn-outline-secondary" onClick={() => incrementarUnidades(item.id)}>+</button>
+                  </td>
+                  
+                  <td>
+                    <button type="button" className="btn btn-danger" onClick={()=> eliminar(item.id) }>Eliminar</button>
                   </td>
                 </tr>
               ))}
@@ -62,11 +73,11 @@ function Cart() {
                   <h3>
                     {unidadesEnCarrito}
                   </h3>
-                <td colSpan="3"><h3>Total</h3></td>
+                <td colSpan="3" ><h3>Total</h3></td>
                 <td className="carritoSuma">
-                  <h3>
+                 
                     ${carrito.reduce((total, item) => total + item.precio * item.unidades, 0)}
-                  </h3>
+                  
                 </td>
               </tr>
               <tr>

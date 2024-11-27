@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { useContext } from "react";
+import { CarritoContext } from "../../../context/CarritoContext";
+
 function NavBar() {
+    const { carrito } = useContext(CarritoContext);
+
+    let unidadesEnCarrito = carrito.reduce((total, item) => total + item.unidades, 0);
 
     
     return (
@@ -32,7 +38,7 @@ function NavBar() {
                             <Link className="nav-link" to="./about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/cart"><i className="fa-solid fa-cart-shopping"> 1</i> <span className="badge bg-danger rounded-pill " ></span></Link>
+                            <Link className="nav-link" to="/cart"><i className="fa-solid fa-cart-shopping"> {unidadesEnCarrito}</i> <span className="badge bg-danger rounded-pill " ></span></Link>
                         </li>
                     </ul>
                 </div>
