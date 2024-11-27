@@ -69,23 +69,20 @@ function Cart() {
             <tfoot className="tfooter">
               <tr>
                 <td colSpan="2"><h5>Cantidad</h5></td>
-                <td className="carritoSuma"/>
-                  <h3>
-                    {unidadesEnCarrito}
-                  </h3>
-                <td colSpan="3" ><h3>Total</h3></td>
                 <td className="carritoSuma">
-                 
-                    ${carrito.reduce((total, item) => total + item.precio * item.unidades, 0)}
-                  
+                  <h3>{unidadesEnCarrito}</h3>
+                </td>
+                <td colSpan="3"><h3>Total</h3></td>
+                <td className="carritoSuma">
+                  ${carrito.reduce((total, item) => total + item.precio * item.unidades, 0)}
                 </td>
               </tr>
               <tr>
-                <td colSpan="2">
-                  <button type="button" className="btn btn-danger" id="pagar">Pagar</button>
-                </td>
-                <td colSpan="2">
-                  <button type="button" className="btn btn-danger" id="vaciar" onClick={vaciarCarrito}>Vaciar</button>
+                <td colSpan="7">
+                  <div className="d-flex justify-content-end">
+                    <button type="button" className="btn btn-info m-1"  >Pagar</button>
+                    <button type="button" className="btn btn-danger m-1"  onClick={vaciarCarrito}>Vaciar</button>
+                  </div>
                 </td>
               </tr>
             </tfoot>

@@ -26,7 +26,7 @@ export function ItemCount() {
             </div>
             <div className="text-center mt-3">
                 <button className="btn btn-primary">
-                    <i className="fas fa-shopping-cart"></i> Carrito
+                    <i className="fas fa-shopping-cart"></i> brkoon
                 </button>
             </div>
         </div>
