@@ -13,13 +13,13 @@ function Home() {
                 </header>
                 <div className="row">
                     <div className="col-md-4">
-                        <img src="./img/alfajores_choco_p-min.webp" className="img-thumbnail custom-img" alt="Imagen 1" />
+                        <img src="/img/alfajores_choco_p-min.webp" className="img-thumbnail custom-img" alt="Imagen 1" />
                     </div>
                     <div className="col-md-4">
-                        <img src="./img/pastafrola_cerca-min.webp" className="img-thumbnail custom-img" alt="Imagen 2" />
+                        <img src="/img/pastafrola_cerca-min.webp" className="img-thumbnail custom-img" alt="Imagen 2" />
                     </div>
                     <div className="col-md-4">
-                        <img src="./img/pasta_rellena-min.webp" className="img-thumbnail custom-img " alt="Imagen 3" />
+                        <img src="/img/pasta_rellena-min.webp" className="img-thumbnail custom-img " alt="Imagen 3" />
                     </div>
                     
                     <h2 className="text-center p-2"> Si te interesa  </h2>

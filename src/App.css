@@ -63,30 +63,8 @@ body {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* inicio de banner */
- .Jumbotron {
-    height: 400px;
-    background-image: url(../public/img/pan_dulce_duo-min.webp);
-    font-weight: bolder;
-    background-position: center;
-    background-size: cover;
-}
 
-.sombras {
-    text-shadow: 0 0 5px black;
-} 
 
-/* fin de banner */
-/* inicio de banner logo*/
- .jumbotron-logo {
-    height: 400px;
-    max-width: 800px;
-    background-image: url(../img/logoObrador.png);
-    font-weight: bolder;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: contain;
-} 
 
 .bg-primary {
     background-color: #ffffff !important;
@@ -97,118 +75,13 @@ body {
     text-shadow: 0 0 5px #F2F2F2;
 }
 
-/* fin de banner */
-/* inicio del carrousel */
-/* carrousel {
-    width: 100vw;
-}
 
-.carousel-item {
-    width: 100vw;
-    max-height: 500px;
-} */
 
-/* fin del carrousel */
-/* .img-about {
-    width: 70vw;
-    height: 80vh;
-    border: 0px solid #F20707;
-    border-radius: 25px;
-    margin: 0 auto;
-    background-image: url(./img/pan_dulce_duo-min.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 80px;
-}  */
-
-/* inicio de presentacion de productos */
-.prod-left {
-    background-image: url(./img/pastafrola_cerca-min.webp);
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 40px;
-}
-
-.prod-right {
-    padding: 20px;
-}
-
-.prod2-left {
-    background-image: url(./img/pan_d_lado-min.webp);
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 40px;
-}
-
-.prod2-right {
-    padding: 20px;
-}
-
-.prod3-left {
-    background-image: url(./img/pasta_rellena-min.webp);
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-}
-
-.prod3-right {
-    padding: 20px;
-}
-
-/* fin de presentacion de productos */
-/* inicio de presentacion de sevicios */
-.serv-left {
-    background-image: url(../public/img/yo_cortando.webp);
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 40px;
-}
-
-.serv-right {
-    padding: 20px;
-}
-
-.serv2-left {
-    background-image: url(../public/img/delivery-guy-1424808_1280.png);
-    height: 200px;
-    background-position: top;
-    background-size: cover;
-    margin-bottom: 40px;
-}
-
-.serv2-right {
-    padding: 20px;
-}
-
-.serv3-left {
-    background-image: url(../public/img/alfajores_choco_p-min.webp);
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-}
-
-.serv3-right {
-    padding: 20px;
-}
-
-/* fin de presentacion de sevicios */
-/* inicio imagen de corte productos 2  */
-.imagen-de-corte2 {
-    height: 200px;
-    width: 80%;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .conteinerimg {
     height: 150px;
     width: 80%;
-    background-image: url(../../public/media/img/pan_d_lado-min.webp);
+    background-image: url(/img/pan_d_lado-min.webp);
     background-position: center;
     background-size: cover;
     margin: 0 auto;
