@@ -1,52 +1,42 @@
-import { useEffect, useState } from "react"
-import Item from "../Item/Item"
-import {productosEnLoad, productosById, productosByCategoria} from "../../../../Data/asyncMocks"
-
-import ItemCategoria from "../Item/ItemCategoria";
-
-
-
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../../../Data/firebase/config';
 
 function ItemListContainer() {
+  const [productos, setProductos] = useState([]);
+  const [id, setId] = useState(0);
+  const [byCategoria, setByCategoria] = useState("");
+  const [categoria, setCategoria] = useState("");
 
- const [productos, setproductos]= useState([]);
- const [id, setId]= useState(0);
- const [byCategoria, setByCategoria]= useState("");
- const [categoria, setCategoria]= useState("");
-  
- useEffect(() => {   
-    productosEnLoad().then((data) => {
-      setproductos(data);
-    });
-  }
-  , []);
+  useEffect(() => {
+    const productosCollection = collection(db, "productos");
+    getDocs(productosCollection)
+      .then((data) => {
+        setProductos(
+          data.docs.map((doc) => {
+            return { ...doc.data(), id: doc.id };
+          })
+        );
+      });
+  }, []);
 
- 
-    useEffect(() => {   
-    productosById({id}).then((data) => {
+  useEffect(() => {
+    productosById({ id }).then((data) => {
       setId(data);
     });
-  }
-  , []);
+  }, []);
 
- 
-    useEffect(() => {
-    productosByCategoria({setByCategoria}).then((data) => { 
+  useEffect(() => {
+    productosByCategoria({ setByCategoria }).then((data) => {
       setByCategoria(data);
-    }); 
-  
-  }
-  , []);
+    });
+  }, []);
 
   return (
-    <>
-   
-    <Item productos={productos} />
-    
-    {/* <ItemCategoria categoria={categoria} /> */}
-
-    </>
-  )
+    <div>
+      {/* Renderiza los productos aquí */}
+    </div>
+  );
 }
 
- export default ItemListContainer
+export default ItemListContainer;

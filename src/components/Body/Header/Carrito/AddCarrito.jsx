@@ -35,6 +35,7 @@ const AddCarrito = ({ producto }) => {
 
   useEffect(() => {
     console.log(carrito);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
 
   return (

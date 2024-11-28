@@ -19,14 +19,13 @@ import Cart from "../pages/Cart";
 import { CarritoContext } from "../context/CarritoContext";
 
 
-
+ const carritoCrear = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 function Body() {
 
-// const carritoCrear = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const [carrito, setCarrito] = useState([]);
+const [carrito, setCarrito] = useState(carritoCrear);
 
 
     return (
