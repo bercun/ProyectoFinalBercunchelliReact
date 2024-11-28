@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../../Data/firebase/config';
+import Item from '../Item/Item';
 
-function ItemListContainer() {
+function ItemListContainer(Productos) {
   const [productos, setProductos] = useState([]);
   const [id, setId] = useState(0);
   const [byCategoria, setByCategoria] = useState("");
@@ -20,21 +21,23 @@ function ItemListContainer() {
       });
   }, []);
 
-  useEffect(() => {
-    productosById({ id }).then((data) => {
-      setId(data);
-    });
-  }, []);
+  
 
-  useEffect(() => {
-    productosByCategoria({ setByCategoria }).then((data) => {
-      setByCategoria(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   productosById({ id }).then((data) => {
+  //     setId(data);
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   productosByCategoria({ setByCategoria }).then((data) => {
+  //     setByCategoria(data);
+  //   });
+  // }, []);
 
   return (
     <div>
-      {/* Renderiza los productos aquí */}
+      <Item productos={productos} />
     </div>
   );
 }
