@@ -23,17 +23,7 @@ function ItemListContainer(Productos) {
 
   
 
-  // useEffect(() => {
-  //   productosById({ id }).then((data) => {
-  //     setId(data);
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   productosByCategoria({ setByCategoria }).then((data) => {
-  //     setByCategoria(data);
-  //   });
-  // }, []);
+  
 
   return (
     <div>
