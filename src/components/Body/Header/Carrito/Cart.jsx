@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CarritoContext } from "../context/CarritoContext";
+import { CarritoContext } from "../../../context/CarritoContext";
 
 function Cart() {
   const { carrito, setCarrito } = useContext(CarritoContext);
@@ -17,7 +17,7 @@ function Cart() {
 
   const decrementarUnidades = (id) => {
     const carritoActualizado = carrito.map(item =>
-      item.id === id && item.unidades >= 0 ? { ...item, unidades: item.unidades - 1 } : item
+      item.id === id && item.unidades > 0 ? { ...item, unidades: item.unidades - 1 } : item
     );
     setCarrito(carritoActualizado);
   };

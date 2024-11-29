@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import AddCarrito from "../../Header/Carrito/AddCarrito";
 
 function Item({ productos }) {
 
@@ -17,6 +18,7 @@ function Item({ productos }) {
                                     <p className="card-text">$ {producto.precio}</p>
                                     <Link className="btn btn-link" to={`/detail/${producto.id}`}>detalle</Link>
                                     <Link className="btn btn-link" style={{margin: '0.5rem'}} to={`/categoria/${producto.categoria}`}>categoria {producto.categoria} </Link>
+                                    <AddCarrito producto={producto} />
                                 </div>
                             </div>
                         </div>

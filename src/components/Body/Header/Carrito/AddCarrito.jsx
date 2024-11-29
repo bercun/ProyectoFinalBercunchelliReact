@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { CarritoContext } from '../../../context/CarritoContext';
+import { Link } from 'react-router-dom';
+import './AddCarrito.css';
 
 const AddCarrito = ({ producto }) => {
   const [unidades, setUnidades] = useState(1);
@@ -34,7 +36,7 @@ const AddCarrito = ({ producto }) => {
   };
 
   useEffect(() => {
-    console.log(carrito);
+    
     localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
 
@@ -51,6 +53,10 @@ const AddCarrito = ({ producto }) => {
         <div className="text-center ">
             <button className="btn btn-primary "onClick={subirCarrito}>
             <i className="fas fa-shopping-cart"></i> Go! to cart 
+            </button>
+            <button>
+              <Link className= "btn btn-outline-info btn-no-border" to="/cart">
+              <i className="fas fa-shopping-cart"> </i></Link>
             </button>
         </div>
       </div>

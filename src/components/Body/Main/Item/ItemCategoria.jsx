@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import AddCarrito from '../../Header/Carrito/AddCarrito';
 
 const ItemCategoria = ({ categoria }) => {
   
@@ -27,7 +28,7 @@ const ItemCategoria = ({ categoria }) => {
                                     <Link className="btn btn-link"  to={`/detail/${producto.id}`}>detalle</Link>
                                     <Link className="btn btn-link"  style={{margin: '0.5rem'}} to={`/categoria/${producto.categoria}`}>Categoria {producto.categoria} </Link>
                                     <br />
-                                    <button className="btn btn-danger" style={{margin: '0.5rem'}}>Comprar</button>
+                                    <AddCarrito producto={producto} />
                                 </div>
                             </div>
                         </div>

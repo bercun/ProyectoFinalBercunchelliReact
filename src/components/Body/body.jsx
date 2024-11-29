@@ -15,7 +15,7 @@ import ItemContainer from "./Main/ItemContainer/ItemContainer";
 
 import ItemContainerDetail from "./Main/ItemContainer/ItemContainerDetail";
 import ItemContainerByCa from "./Main/ItemContainer/ItemContainerByCa";
-import Cart from "../pages/Cart";
+import Cart from "../Body/Header/Carrito/Cart";
 import { CarritoContext } from "../context/CarritoContext";
 
 
