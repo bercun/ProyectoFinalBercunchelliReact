@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CarritoContext } from '../../../context/CarritoContext';
 
+
 function FinCompra() {
   const { carrito, vaciarCarrito } = useContext(CarritoContext);
+  const [ datosFacturacion, setDatosFacturacion ] = useState({});
   console.log(carrito);
 
   const { register, handleSubmit } = useForm();
+  
 
   const enviar = (data) => {
-    console.log(data);
+    setDatosFacturacion(data);
+    console.log(datosFacturacion);
   };
 
   return (
@@ -49,9 +53,10 @@ function FinCompra() {
                 <label htmlFor="tarjeta" className="form-label">Tarjeta</label>
               </div>
             </div>
-            <button type="submit" className="btn btn-primary">Enviar</button>
+            <button type="submit" className="btn btn-primary mx-2">Procesar compra</button>
+            <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>
           </form>
-          <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>
+          
         </div>
         <div className="col-md-3">
           <h2>Resumen de la compra</h2>
