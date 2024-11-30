@@ -33,10 +33,20 @@ body {
     /* se usa el !important para superponer a otro codigo el mismo modificador */
     font-weight: bold;
     font-size: larger;
+    transition: transform 0.3s ease; /* Añadir transición */
+}
+
+.navbar-brand:hover {
+    transform: scale(1.2) rotate(5deg); /* Escalado mayor y pequeña rotación */
 }
 
 .navbar-brand img {
     height: 70px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
 }
 
 /* color de iconos de nav */
@@ -109,4 +119,3 @@ body {
     background-color: #F20707;
     border-color: #F20707;
 }
-

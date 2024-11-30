@@ -5,9 +5,9 @@ import Item from '../Item/Item';
 
 function ItemListContainer(Productos) {
   const [productos, setProductos] = useState([]);
-  const [id, setId] = useState(0);
-  const [byCategoria, setByCategoria] = useState("");
-  const [categoria, setCategoria] = useState("");
+  // const [id, setId] = useState(0);
+  // const [byCategoria, setByCategoria] = useState("");
+  // const [categoria, setCategoria] = useState("");
 
   useEffect(() => {
     const productosCollection = collection(db, "productos");

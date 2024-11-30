@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { CarritoContext } from "../../../context/CarritoContext";
+import { Link } from "react-router-dom";
+// import FinCompra from "./FinCompra";
 
 function Cart() {
   const { carrito, setCarrito } = useContext(CarritoContext);
@@ -28,6 +30,7 @@ function Cart() {
   
 
   let unidadesEnCarrito = carrito.reduce((total, item) => total + item.unidades, 0);
+  let precioTotal = carrito.reduce((total, item) => total + item.precio * item.unidades, 0);
 
   return (
     <main className="main-carrito" style={{ margin: '3rem' }}>
@@ -74,13 +77,14 @@ function Cart() {
                 </td>
                 <td colSpan="3"><h3>Total</h3></td>
                 <td className="carritoSuma">
-                  ${carrito.reduce((total, item) => total + item.precio * item.unidades, 0)}
+                  ${precioTotal}
                 </td>
               </tr>
               <tr>
                 <td colSpan="7">
                   <div className="d-flex justify-content-end">
-                    <button type="button" className="btn btn-info m-1"  >Pagar</button>
+                    
+                    <Link className="btn btn-info m-1" to="/FinCompra"  >Pagar</Link>
                     <button type="button" className="btn btn-danger m-1"  onClick={vaciarCarrito}>Vaciar</button>
                   </div>
                 </td>

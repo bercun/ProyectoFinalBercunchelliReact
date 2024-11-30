@@ -11,13 +11,12 @@ import About from "../pages/About";
 import Login from "../pages/Login";
 // Productos
 import ItemContainer from "./Main/ItemContainer/ItemContainer";
-
-
 import ItemContainerDetail from "./Main/ItemContainer/ItemContainerDetail";
 import ItemContainerByCa from "./Main/ItemContainer/ItemContainerByCa";
+
 import Cart from "../Body/Header/Carrito/Cart";
 import { CarritoContext } from "../context/CarritoContext";
-
+import FinCompra from "../Body/Header/Carrito/FinCompra";
 
  const carritoCrear = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -46,6 +45,7 @@ const [carrito, setCarrito] = useState(carritoCrear);
                     <Route path="/categoria/" element={<ItemContainerByCa/>} />
                     <Route path="*" element={<h1>404 Not Found</h1>} />
                     <Route path="/cart" element={<Cart/> }/>
+                    <Route path="/finCompra" element= {<FinCompra/>} />
 
                 </Routes>
 
