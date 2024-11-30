@@ -1,20 +1,43 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CarritoContext } from '../../../context/CarritoContext';
+import { db } from '../../../../Data/firebase/config';
+import { collection, addDoc } from 'firebase/firestore';
+
 
 
 function FinCompra() {
   const { carrito, vaciarCarrito } = useContext(CarritoContext);
-  const [ datosFacturacion, setDatosFacturacion ] = useState({});
-  console.log(carrito);
-
-  const { register, handleSubmit } = useForm();
+  const [ compra, setCompra ] = useState({});
   
+  const { register, handleSubmit } = useForm(); 
+  const precioTotal = carrito.reduce((total, item) => total + item.precio * item.unidades, 0);
+
+  //firebase
+   
+
 
   const enviar = (data) => {
-    setDatosFacturacion(data);
-    console.log(datosFacturacion);
+    setCompra ( {
+        carrito: carrito,
+        datosFacturacion: data,
+        total: precioTotal,
+        fecha: new Date()
+    }
+    );
+    const docref = collection(db, "compras");
+    addDoc(docref, compra)
+       .then((doc) => {
+         console.log("Document written with ID: ", doc.id);
+         console.log(doc);
+         })
+
+
+
+    
+
   };
+ 
 
   return (
     <div className="container">
@@ -67,7 +90,7 @@ function FinCompra() {
               </li>
             ))}
           </ul>
-          <h3>Total: ${carrito.reduce((total, item) => total + item.precio * item.unidades, 0)}</h3>
+          <h3>Total: ${precioTotal}</h3>
         </div>
       </div>
     </div>
