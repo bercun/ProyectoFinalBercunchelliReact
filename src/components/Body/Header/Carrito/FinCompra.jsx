@@ -23,7 +23,7 @@ function FinCompra() {
 
     try {
       const docRef = await addDoc(collection(db, "compras"), nuevaCompra);
-      console.log("Documento agregado con ID: ", docRef.id);
+     
       // Redirigir a la página de Factura y pasar el ID del documento
       navigate(`/factura/${docRef.id}`);
     } catch (error) {

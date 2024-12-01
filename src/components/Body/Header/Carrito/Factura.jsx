@@ -1,44 +1,69 @@
 import { useParams } from "react-router-dom";
 import {doc , getDoc} from 'firebase/firestore';
 import { db } from '../../../../Data/firebase/config';
+import { useEffect } from "react";
+import { useState } from "react";
 
 
 const Factura = () => {
   const  id  = useParams().id;
-  console.log(id);
+  const [item, setItem] = useState({});
 
+
+  useEffect(() => {
+    const getFactura = async () => {
+      const docRef = doc(db, "compras", id);
+      const docSnap = await getDoc(docRef);
+      setItem(docSnap.data());
+    };
+    getFactura();
+  }, [id]); 
+
+const {carrito, datosFacturacion, fecha, total} = item;
+// const { apellido, email, telefono, direccion} = datosFacturacion;
+// const fechaCompra = new Date(fecha * 1000).toLocaleDateString();
+const producto = carrito[0]
+
+console.log(producto);
+
+
+
+  
 
 
 
   return (
+
+    
     <div className="container mt-5">
       <h1 className="text-center">Factura</h1>
       <div className="row mb-4">
         <div className="col-md-6">
-          <h2>Información de la Empresa</h2>
-          <p>Nombre de la Empresa</p>
-          <p>Dirección de la Empresa</p>
-          <p>Teléfono de la Empresa</p>
+          <h2>nombre</h2>
+          <p>nombre</p>
+          <p>direccion</p>
+          <p>telefono</p>
         </div>
         <div className="col-md-6 text-md-right">
           <h2>Información del Cliente</h2>
-          <p>Nombre del Cliente</p>
-          <p>Dirección del Cliente</p>
-          <p>Teléfono del Cliente</p>
+          <p>nombre</p>
+          <p>direccion</p>
+          <p>telefono</p>
         </div>
       </div>
       <table className="table table-bordered">
         <thead>
           <tr>
-            <th>Descripción</th>
-            <th>Cantidad</th>
-            <th>Precio Unitario</th>
-            <th>Total</th>
+            <th>nombre</th>
+            <th>unidades</th>
+            <th>precio por unidades</th>
+            <th>fechaCompra</th>
+            <th>total</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Producto 1</td>
+            <td>{producto.nombre}</td>
             <td>2</td>
             <td>$10.00</td>
             <td>$20.00</td>
