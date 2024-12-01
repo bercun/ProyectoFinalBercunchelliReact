@@ -6,11 +6,16 @@ import { db } from '../../../../Data/firebase/config';
 import { collection, addDoc } from 'firebase/firestore';
 
 function FinCompra() {
-  const { carrito, vaciarCarrito } = useContext(CarritoContext);
+  const { carrito, setCarrito} = useContext(CarritoContext);
   const [compra, setCompra] = useState({});
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate(); // Crear instancia de useNavigate
   const precioTotal = carrito.reduce((total, item) => total + item.precio * item.unidades, 0);
+  
+  const vaciarCarrito = () => {
+    setCarrito([]);
+  };
+
 
   const enviar = async (data) => {
     const nuevaCompra = {
@@ -23,13 +28,14 @@ function FinCompra() {
 
     try {
       const docRef = await addDoc(collection(db, "compras"), nuevaCompra);
-     
-      // Redirigir a la página de Factura y pasar el ID del documento
+      vaciarCarrito();
       navigate(`/factura/${docRef.id}`);
     } catch (error) {
       console.error("Error al agregar el documento: ", error);
     }
   };
+
+ 
 
   return (
     <div className="container">
@@ -69,7 +75,7 @@ function FinCompra() {
               </div>
             </div>
             <button type="submit" className="btn btn-primary mx-2">Procesar compra</button>
-            <button type="button" className="btn btn-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>
+            <button type="button" className="btn btn-danger" onClick={vaciarCarrito} >Vaciar Carrito</button>
           </form>
           
         </div>

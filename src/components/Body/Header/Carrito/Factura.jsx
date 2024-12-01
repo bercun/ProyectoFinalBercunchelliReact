@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import {doc , getDoc} from 'firebase/firestore';
 import { db } from '../../../../Data/firebase/config';
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
 
 
 const Factura = () => {
@@ -19,68 +20,84 @@ const Factura = () => {
     getFactura();
   }, [id]); 
 
-const {carrito, datosFacturacion, fecha, total} = item;
-// const { apellido, email, telefono, direccion} = datosFacturacion;
-// const fechaCompra = new Date(fecha * 1000).toLocaleDateString();
-const producto = carrito[0]
+const {carrito =[], datosFacturacion={}, fecha, total} = item;
 
-console.log(producto);
-
-
-
-  
-
-
+const fechaCompra = fecha ? new Date(fecha.seconds * 1000).toLocaleDateString('es-ES', {
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric'
+}) : '';
 
   return (
-
-    
-    <div className="container mt-5">
-      <h1 className="text-center">Factura</h1>
-      <div className="row mb-4">
-        <div className="col-md-6">
-          <h2>nombre</h2>
-          <p>nombre</p>
-          <p>direccion</p>
-          <p>telefono</p>
-        </div>
-        <div className="col-md-6 text-md-right">
-          <h2>Información del Cliente</h2>
-          <p>nombre</p>
-          <p>direccion</p>
-          <p>telefono</p>
-        </div>
-      </div>
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th>nombre</th>
-            <th>unidades</th>
-            <th>precio por unidades</th>
-            <th>fechaCompra</th>
-            <th>total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{producto.nombre}</td>
-            <td>2</td>
-            <td>$10.00</td>
-            <td>$20.00</td>
-          </tr>
-          <tr>
-            <td>Producto 2</td>
-            <td>1</td>
-            <td>$15.00</td>
-            <td>$15.00</td>
-          </tr>
-        </tbody>
-      </table>
-      <div className="text-right">
-        <h2>Total: $35.00</h2>
+    <div className="container border p-4 mt-5">
+    <div className="row">
+      <div className="col-12 text-center">
+        <img
+          src="../../../../../public/img/logoObrador.png"
+          alt="Siigo logo"
+          style={{ width: "150px" }}
+        />
+        <h4 className="mt-3">El Obrador SL</h4>
+        <p>
+          NIT: 100331819-1 <br />
+          CRA 80 N. 35-50, Montevido, Uruguay
+        </p>
       </div>
     </div>
-  );
-};
+
+    <div className="row mt-4">
+      <div className="col-md-6">
+        <h6>Datos de Facturación:</h6>
+        <p>
+          <strong>Nombre:</strong> {datosFacturacion.nombre} <br />
+          <strong>Dirección:</strong> {datosFacturacion.direccion} <br />
+          <strong>Teléfono:</strong> {datosFacturacion.telefono} <br />
+          <strong>Email:</strong> {datosFacturacion.email} <br />
+          <strong>Fecha de Compra:</strong> {fechaCompra}
+        </p>
+      </div>
+      <div className="col-md-6 text-end">
+        <h6>Factura de Compra No.</h6>
+        <p>
+          ID: {id} <br />
+          Fecha Emisión: {fechaCompra} <br />
+        </p>
+      </div>
+    </div>
+
+    <table className="table table-bordered mt-4">
+      <thead className="table-light">
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        {carrito.map((producto, index) => (
+          <tr key={index}>
+            <td>{producto.nombre}</td>
+            <td>{producto.unidades}</td>
+            <td>${producto.precio}</td>
+            <td>${producto.unidades * producto.precio}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <div className="row mt-4">
+      <div className="col-md-6">
+        <h6>Observaciones:</h6>
+        <p>(Vacío)</p>
+      </div>
+      <div className="col-md-6 text-end">
+        <h6>Total:</h6>
+        <h4 className="text-danger">${total}</h4>
+      </div>
+    </div>
+  </div>
+);
+}
 
 export default Factura;

@@ -28,6 +28,7 @@ function Body() {
 const [carrito, setCarrito] = useState(carritoCrear);
 
 
+
     return (
         <>
         <CarritoContext.Provider value={{carrito, setCarrito}}>
@@ -66,6 +67,3 @@ const [carrito, setCarrito] = useState(carritoCrear);
 }
 
 export default Body;
-
-
- {/* <Route path="/detalle:id" element=<ItemDetail id={2} /> /> */}
