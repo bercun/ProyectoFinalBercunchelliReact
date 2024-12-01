@@ -17,6 +17,7 @@ import ItemContainerByCa from "./Main/ItemContainer/ItemContainerByCa";
 import Cart from "../Body/Header/Carrito/Cart";
 import { CarritoContext } from "../context/CarritoContext";
 import FinCompra from "../Body/Header/Carrito/FinCompra";
+import Factura from "./Header/Carrito/Factura";
 
  const carritoCrear = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -46,6 +47,7 @@ const [carrito, setCarrito] = useState(carritoCrear);
                     <Route path="*" element={<h1>404 Not Found</h1>} />
                     <Route path="/cart" element={<Cart/> }/>
                     <Route path="/finCompra" element= {<FinCompra/>} />
+                    <Route path="/factura:/id" element= {<Factura/>} />
 
                 </Routes>
 

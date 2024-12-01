@@ -1,43 +1,35 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { CarritoContext } from '../../../context/CarritoContext';
 import { db } from '../../../../Data/firebase/config';
 import { collection, addDoc } from 'firebase/firestore';
 
-
-
 function FinCompra() {
   const { carrito, vaciarCarrito } = useContext(CarritoContext);
-  const [ compra, setCompra ] = useState({});
-  
-  const { register, handleSubmit } = useForm(); 
+  const [compra, setCompra] = useState({});
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate(); // Crear instancia de useNavigate
   const precioTotal = carrito.reduce((total, item) => total + item.precio * item.unidades, 0);
 
-  //firebase
-   
+  const enviar = async (data) => {
+    const nuevaCompra = {
+      carrito: carrito,
+      datosFacturacion: data,
+      total: precioTotal,
+      fecha: new Date()
+    };
+    setCompra(nuevaCompra);
 
-
-  const enviar = (data) => {
-    setCompra ( {
-        carrito: carrito,
-        datosFacturacion: data,
-        total: precioTotal,
-        fecha: new Date()
+    try {
+      const docRef = await addDoc(collection(db, "compras"), nuevaCompra);
+      console.log("Documento agregado con ID: ", docRef.id);
+      // Redirigir a la página de Factura y pasar el ID del documento
+      navigate(`/factura/${docRef.id}`);
+    } catch (error) {
+      console.error("Error al agregar el documento: ", error);
     }
-    );
-    const docref = collection(db, "compras");
-    addDoc(docref, compra)
-       .then((doc) => {
-         console.log("Document written with ID: ", doc.id);
-         console.log(doc);
-         })
-
-
-
-    
-
   };
- 
 
   return (
     <div className="container">
@@ -47,23 +39,23 @@ function FinCompra() {
           <form onSubmit={handleSubmit(enviar)}>
             <div className="mb-3">
               <label htmlFor="nombre" className="form-label">Nombre</label>
-              <input type="text" className="form-control" {...register('nombre')} />
+              <input type="text" id="nombre" className="form-control" {...register('nombre')} />
             </div>
             <div className="mb-3">
               <label htmlFor="apellido" className="form-label">Apellido</label>
-              <input type="text" className="form-control" {...register('apellido')} />
+              <input type="text" id="apellido" className="form-control" {...register('apellido')} />
             </div>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">Email</label>
-              <input type="email" className="form-control" {...register('email')} />
+              <input type="email" id="email" className="form-control" {...register('email')} />
             </div>
             <div className="mb-3">
               <label htmlFor="telefono" className="form-label">Teléfono</label>
-              <input type="tel" className="form-control" {...register('telefono')} />
+              <input type="tel" id="telefono" className="form-control" {...register('telefono')} />
             </div>
             <div className="mb-3">
               <label htmlFor="direccion" className="form-label">Dirección</label>
-              <input type="text" className="form-control" {...register('direccion')} />
+              <input type="text" id="direccion" className="form-control" {...register('direccion')} />
             </div>
             <div className="mb-3">
               <label className="form-label">Método de Pago</label>
@@ -77,7 +69,7 @@ function FinCompra() {
               </div>
             </div>
             <button type="submit" className="btn btn-primary mx-2">Procesar compra</button>
-            <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>
+            <button type="button" className="btn btn-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>
           </form>
           
         </div>
