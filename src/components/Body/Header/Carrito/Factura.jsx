@@ -33,7 +33,7 @@ const fechaCompra = fecha ? new Date(fecha.seconds * 1000).toLocaleDateString('e
     <div className="row">
       <div className="col-12 text-center">
         <img
-          src="../../../../../public/img/logoObrador.png"
+          src="/img/logoObrador.png"
           alt="Siigo logo"
           style={{ width: "150px" }}
         />
