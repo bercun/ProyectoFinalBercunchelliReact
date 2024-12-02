@@ -32,6 +32,17 @@ function Cart() {
   let unidadesEnCarrito = carrito.reduce((total, item) => total + item.unidades, 0);
   let precioTotal = carrito.reduce((total, item) => total + item.precio * item.unidades, 0);
 
+  if (carrito.length === 0) {
+    return (
+      <main className="main-carrito" style={{ margin: '3rem' }}>
+        <div className="carrito-box">
+          <h1>Carrito vacío</h1>
+          <img src=" /img/emoji-smiley.gif" alt="emoji triste" />
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="main-carrito" style={{ margin: '3rem' }}>
       <div className="carrito-box">
