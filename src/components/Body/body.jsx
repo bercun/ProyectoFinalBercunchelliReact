@@ -14,9 +14,9 @@ import ItemContainer from "./Main/ItemContainer/ItemContainer";
 import ItemContainerDetail from "./Main/ItemContainer/ItemContainerDetail";
 import ItemContainerByCa from "./Main/ItemContainer/ItemContainerByCa";
 
-import Cart from "../Body/Header/Carrito/Cart";
+import Cart from "./Header/Carrito/Cart";
 import { CarritoContext } from "../context/CarritoContext";
-import FinCompra from "../Body/Header/Carrito/FinCompra";
+import FinCompra from "./Header/Carrito/FinCompra";
 import Factura from "./Header/Carrito/Factura";
 
  const carritoCrear = JSON.parse(localStorage.getItem("carrito")) || [];

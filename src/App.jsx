@@ -1,4 +1,4 @@
-import Body from "./components/Body/body";
+import Body from "./components/Body/Body";
 
 
 
