@@ -16,7 +16,11 @@ Este es el proyecto final para el curso de React, desarrollado con Vite. El proy
 https://github.com/bercun/ProyectoFinalBercunchelliReact.git
 
 
-2. Instala dependecias 
+2. Subio a Netlify en la direccion 
+
+[text](https://bercunpfreact.netlify.app/)
+
+3. Instala dependecias 
 npm install
 
 3 Modo de uso
