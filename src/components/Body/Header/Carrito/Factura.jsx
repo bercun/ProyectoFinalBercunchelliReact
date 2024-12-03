@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import {doc , getDoc} from 'firebase/firestore';
 import { db } from '../../../../Data/firebase/config';
 import { useEffect, useState } from "react";
+import imglogo from '../../../../../public/img/icono_obrador.png';
 
 
 
@@ -32,11 +33,12 @@ const fechaCompra = fecha ? new Date(fecha.seconds * 1000).toLocaleDateString('e
     <div className="container border p-4 mt-5">
     <div className="row">
       <div className="col-12 text-center">
-        <img
-          src="/img/logoObrador.png"
-          alt="Siigo logo"
-          style={{ width: "150px" }}
-        />
+      <img
+            src="/img/icono_obrador.png"
+            alt="icono sin fondo"
+            className="img-fluid"
+            style={{ maxWidth: '100px' }} // Ajusta el tamaño máximo según tus necesidades
+          />
         <h4 className="mt-3">El Obrador SL</h4>
         <p>
           NIT: 100331819-1 <br />

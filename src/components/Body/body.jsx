@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
-// estilos
-import "./body.css";
+
 // Pages
 import Home from "../pages/Home";
 import Footer from "./Footer/Footer";
