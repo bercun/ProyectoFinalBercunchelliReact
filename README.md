@@ -21,7 +21,7 @@ https://github.com/bercun/ProyectoFinalBercunchelliReact.git
 [Netlify hosting](https://bercunpfreact.netlify.app/)
 
     
-    [video de muestra] (https://drive.google.com/file/d/1anb8jgkZZ41TgeFg6c8mQM9wPcMAt9uG/view?usp=drive_link)
+    [video de muestra](https://drive.google.com/file/d/17xvLFGjqp8NRyNtigHYG0UwC04_-fr_M/view?usp=sharing)
 
 
 3. Instala dependecias 
