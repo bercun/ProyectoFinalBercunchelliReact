@@ -18,7 +18,7 @@ https://github.com/bercun/ProyectoFinalBercunchelliReact.git
 
 2. Subio a Netlify en la direccion 
 
-[text](https://bercunpfreact.netlify.app/)
+[Netlify hosting](https://bercunpfreact.netlify.app/)
 
 3. Instala dependecias 
 npm install
