@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import {doc , getDoc} from 'firebase/firestore';
 import { db } from '../../../../Data/firebase/config';
 import { useEffect, useState } from "react";
-import imglogo from '../../../../../public/img/icono_obrador.png';
+
 
 
 
